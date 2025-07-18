@@ -99,6 +99,7 @@
                                 <exclude>sun/*</exclude>
                                 <exclude>jdk/*</exclude>
                                 <exclude>javax/*</exclude>
+                                <exclude>org/jcp/*</exclude>
                             </excludes>
                         </configuration>
                     </execution>
