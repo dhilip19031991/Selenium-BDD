@@ -100,6 +100,12 @@
                                 <exclude>jdk/*</exclude>
                                 <exclude>javax/*</exclude>
                                 <exclude>org/jcp/*</exclude>
+                                <exclude>com/sun/*</exclude>
+                                <exclude>org/apache/*</exclude>
+                                <exclude>org/w3c/*</exclude>
+                                <exclude>org/xml/*</exclude>
+                                <exclude>org/ietf/*</exclude>
+                                <exclude>org/omg/*</exclude>
                             </excludes>
                         </configuration>
                     </execution>
