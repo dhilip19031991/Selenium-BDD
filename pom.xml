@@ -133,9 +133,9 @@
                         </goals>
                         <configuration>
                             <projectName>BDD Cucumber Selenium</projectName>
-                            <reportOutputDirectory>${project.build.directory}/cucumber-html-reports</reportOutputDirectory>
+                            <reportOutputDirectory>target/cucumber-html-reports</reportOutputDirectory>
                             <jsonFiles>
-                                <param>${project.build.directory}/cucumber.json</param>
+                                <param>target/cucumber.json</param>
                             </jsonFiles>
                         </configuration>
                     </execution>
