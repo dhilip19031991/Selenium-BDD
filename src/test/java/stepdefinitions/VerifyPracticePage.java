@@ -26,7 +26,7 @@ public class VerifyPracticePage extends BaseClass {
     }
 
     @When("enter the conuntry name {string}")
-    public void enter_the_conuntry_name(String name) throws InterruptedException, AWTException {
+    public void enter_the_conuntry_name(String name) throws InterruptedException {
         sendKeys(driver.findElement(By.xpath("//input[@id='autocomplete'][@type='text']")), name);
         pressDown(2);
         pressEnter();
