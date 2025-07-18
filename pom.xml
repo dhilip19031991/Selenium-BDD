@@ -83,7 +83,7 @@
                 </configuration>
             </plugin>
 
-            <!-- JaCoCo Plugin -->
+            <!-- JaCoCo Plugin with system class exclusions -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -93,6 +93,14 @@
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
+                        <configuration>
+                            <excludes>
+                                <exclude>java/*</exclude>
+                                <exclude>sun/*</exclude>
+                                <exclude>jdk/*</exclude>
+                                <exclude>javax/*</exclude>
+                            </excludes>
+                        </configuration>
                     </execution>
                     <execution>
                         <id>report</id>
