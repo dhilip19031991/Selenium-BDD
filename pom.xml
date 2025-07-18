@@ -118,29 +118,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- Cucumber Report Generation Plugin (optional) -->
-            <plugin>
-                <groupId>net.masterthought</groupId>
-                <artifactId>maven-cucumber-reporting</artifactId>
-                <version>5.7.0</version>
-                <executions>
-                    <execution>
-                        <id>generate-cucumber-report</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <projectName>BDD Cucumber Selenium</projectName>
-                            <reportOutputDirectory>target/cucumber-html-reports</reportOutputDirectory>
-                            <jsonFiles>
-                                <param>target/cucumber.json</param>
-                            </jsonFiles>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 </project>
