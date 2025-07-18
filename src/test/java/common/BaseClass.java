@@ -1,8 +1,5 @@
 package common;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.List;
 
@@ -10,9 +7,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.Keys;
 
 public class BaseClass {
     public static WebDriver driver;
@@ -20,7 +20,14 @@ public class BaseClass {
     public static WebElement element;
 
     public void browserLaunch() {
-        driver = new ChromeDriver();
+        // ✅ Use headless mode in Jenkins
+        ChromeOptions options = new ChromeOptions();
+        if (isHeadlessEnv()) {
+            options.addArguments("--headless=new");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+        }
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
@@ -37,8 +44,8 @@ public class BaseClass {
         element.click();
     }
 
-    public static void winWait(int a) throws InterruptedException {
-        Thread.sleep(a);
+    public static void winWait(int millis) throws InterruptedException {
+        Thread.sleep(millis);
     }
 
     public static void explicitWaitClick(String xpath) {
@@ -46,42 +53,33 @@ public class BaseClass {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
     }
 
-    public static void robotEnter() throws AWTException {
-        Robot rb = new Robot();
-        rb.keyPress(KeyEvent.VK_ENTER);
-        rb.keyRelease(KeyEvent.VK_ENTER);
-
+    // ✅ Replaced Robot with WebDriver Keys
+    public static void pressEnter() {
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.ENTER).perform();
     }
 
-    public static void robotDown(int n) throws AWTException, InterruptedException {
-        Robot rb = new Robot();
-        for (int i = 0; i <= n; i++) {
-            rb.keyPress(KeyEvent.VK_DOWN);
-            rb.keyRelease(KeyEvent.VK_DOWN);
-            Thread.sleep(2000);
+    public static void pressDown(int count) throws InterruptedException {
+        Actions actions = new Actions(driver);
+        for (int i = 0; i < count; i++) {
+            actions.sendKeys(Keys.DOWN).perform();
+            Thread.sleep(500); // slight wait to simulate user interaction
         }
-
     }
 
     public static void selectOptions_Index(WebElement dropdown, int index) throws InterruptedException {
-
         Select sc = new Select(dropdown);
-        List<WebElement> li = sc.getOptions();
-        for (WebElement x : li) {
-            x.getText();
-
+        List<WebElement> options = sc.getOptions();
+        for (WebElement option : options) {
+            option.getText(); // optional, unused
         }
-        Thread.sleep(2000);
+        Thread.sleep(500);
         sc.selectByIndex(index);
-        Thread.sleep(2000);
-
+        Thread.sleep(500);
     }
 
-    // public static void selectByIndex(WebElement dropdown, int index) {
-
-    // Select sc = new Select(dropdown);
-    // sc.selectByIndex(index);
-
-    // }
-
+    private boolean isHeadlessEnv() {
+        // Customize this logic as needed
+        return System.getenv("JENKINS_HOME") != null || System.getProperty("headless", "false").equals("true");
+    }
 }

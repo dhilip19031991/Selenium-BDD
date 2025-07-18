@@ -28,8 +28,8 @@ public class VerifyPracticePage extends BaseClass {
     @When("enter the conuntry name {string}")
     public void enter_the_conuntry_name(String name) throws InterruptedException, AWTException {
         sendKeys(driver.findElement(By.xpath("//input[@id='autocomplete'][@type='text']")), name);
-        robotDown(2);
-        robotEnter();
+        pressDown(2);
+        pressEnter();
         winWait(2000);
     }
 
