@@ -1,17 +1,14 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.*;
-
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pages.loginOR;
+import common.BaseClass;
 
-public class LoginSteps {
-    WebDriver driver;
+public class LoginSteps extends BaseClass {
 
     @Given("I open the login page")
     public void open_login_page() {
-        driver = new ChromeDriver();
         driver.get("https://demo-saas.bugbug.io/sign-in");
     }
 
@@ -24,8 +21,11 @@ public class LoginSteps {
 
     @Then("I should see the homepage")
     public void verify_homepage() {
-        //String title = driver.getTitle();
-        //assert title.contains("Dashboard");
-        driver.quit();
+        String title = driver.getTitle();
+        System.out.println("Page title: " + title);
+        // Update this check to match the actual homepage title after login
+        if (!title.toLowerCase().contains("demo saas")) {
+            throw new AssertionError("Homepage not displayed! Title was: " + title);
+        }
     }
 }

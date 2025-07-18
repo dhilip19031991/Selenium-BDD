@@ -1,0 +1,5 @@
+common\BaseClass.class
+hooks\HooksClass.class
+stepdefinitions\LoginSteps.class
+runners\TestRunner.class
+stepdefinitions\VerifyPracticePage.class
