@@ -1,7 +1,5 @@
 package stepdefinitions;
 
-import java.awt.AWTException;
-
 import org.openqa.selenium.By;
 
 import common.BaseClass;
