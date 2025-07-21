@@ -1,5 +1,5 @@
 @ss
-Feature:Verify Practice page
+Feature: Mary_Web_Verify Practice page
 
 Background: 
 Given launch the url "https://rahulshettyacademy.com/AutomationPractice/"

@@ -1,9 +1,10 @@
 package stepdefinitions;
 
-import io.cucumber.java.en.*;
-import org.openqa.selenium.*;
-import pages.loginOR;
 import common.BaseClass;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pages.loginOR;
 
 public class LoginSteps extends BaseClass {
 
