@@ -13,8 +13,8 @@ import io.cucumber.java.en.When;
 
 public class AddReview extends BaseClass {
 
-    @Given("launching the url {string}")
-    public void launching_the_url(String url) throws InterruptedException {
+    @Given("launching the url1 {string}")
+    public void launching_the_url1(String url) throws InterruptedException {
         driver.get(url);
         winWait(2000);
 
@@ -76,8 +76,8 @@ public class AddReview extends BaseClass {
 
     }
 
-    @When("click the submit button")
-    public void click_the_submit_button() throws InterruptedException {
+    @When("clicking the submit button")
+    public void clicking_the_submit_button() throws InterruptedException {
         explicitWaitClick("//button[@id='button-review'][@type='submit']");
         winWait(500);
 
@@ -93,59 +93,4 @@ public class AddReview extends BaseClass {
         }
 
     }
-
-    /*
-     * 
-     * @Given("launch the url")
-     * public void launch_the_url() {
-     * 
-     * }
-     * 
-     * @When("click the product button")
-     * public void click_the_product_button() {
-     * 
-     * }
-     * 
-     * @When("Verify user entered the all products page")
-     * public void verify_user_entered_the_all_products_page() {
-     * 
-     * }
-     * 
-     * @When("click on view product")
-     * public void click_on_view_product() {
-     * 
-     * }
-     * 
-     * @When("verify Write your Review element is visible")
-     * public void verify_write_your_review_element_is_visible() {
-     * 
-     * }
-     * 
-     * @When("enter your name {string}")
-     * public void enter_your_name(String string) {
-     * 
-     * }
-     * 
-     * @When("enter the email address {string}")
-     * public void enter_the_email_address(String string) {
-     * 
-     * }
-     * 
-     * @When("write your review {string}")
-     * public void write_your_review(String string) {
-     * 
-     * }
-     * 
-     * @When("click the submit button")
-     * public void click_the_submit_button() {
-     * 
-     * }
-     * 
-     * @Then("validate the response message")
-     * public void validate_the_response_message() {
-     * 
-     * }
-     * 
-     */
-
 }

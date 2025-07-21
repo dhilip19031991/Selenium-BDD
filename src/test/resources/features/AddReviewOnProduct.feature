@@ -2,7 +2,7 @@
 Feature: Mary_Web_Add Review On Product
 
 Background:
-Given launching the url "https://www.automationexercise.com/"
+Given launching the url1 "https://www.automationexercise.com/"
 
 
 Scenario Outline: Adding review for product and validating response
@@ -13,7 +13,7 @@ And verify Write your Review element is visible
 And enter your name "<name>"
 And enter the email address "<email>"
 And write your review "<review>"
-And click the submit button
+And clicking the submit button
 Then validate the response message
 
 Examples:
