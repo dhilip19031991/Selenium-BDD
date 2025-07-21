@@ -99,6 +99,7 @@ public class AddMobileToCart {
         // Thread.sleep(2000);
 
         System.out.println("price matched");
+        driver.quit();
 
     }
 

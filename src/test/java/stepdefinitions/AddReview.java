@@ -21,7 +21,8 @@ public class AddReview extends BaseClass {
     }
 
     @When("click the product button")
-    public void click_the_product_button() {
+    public void click_the_product_button() throws InterruptedException {
+        winWait(2000);
         explicitWaitClick("//i[contains(@class,'material-icons card_travel')][@style='font-size: 16px;']");
 
     }

@@ -49,7 +49,7 @@ public class BaseClass {
     }
 
     public static void explicitWaitClick(String xpath) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
     }
 

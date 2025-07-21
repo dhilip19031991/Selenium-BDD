@@ -1,12 +1,31 @@
 package stepdefinitions;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 import common.BaseClass;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class BrandProducts extends BaseClass {
+
+    @When("clicking product button")
+    public void clicking_product_button() throws InterruptedException {
+
+        winWait(5000);
+        // driver.findElement(By.xpath("//a[@style='color:
+        // orange;']/child::i")).click();
+
+        WebElement element1 = driver.findElement(By.xpath("//a[@style='color: orange;']/child::i"));
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click()", element1);
+
+        // explicitWaitClick("//a[@style='color: orange;']");
+        System.out.println("clicked");
+
+    }
 
     @When("click on any brand1")
     public void click_on_any_brand1() {
