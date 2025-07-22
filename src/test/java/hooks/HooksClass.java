@@ -4,9 +4,9 @@ import common.BaseClass;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
-public class HooksClass {
+public class HooksClass extends BaseClass {
 
-    BaseClass base = new BaseClass();
+    common.BaseClass base = new common.BaseClass();
 
     @Before
     public void beforeScenario() {
