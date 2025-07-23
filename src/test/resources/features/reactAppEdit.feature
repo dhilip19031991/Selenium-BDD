@@ -1,5 +1,5 @@
 @regression@smoke
-Feature: React App Emp Training Records Edit
+Feature: React App Emp Training Records Edit new
 
  Scenario: Edit first record sucessfully
  Given user in on react app page
