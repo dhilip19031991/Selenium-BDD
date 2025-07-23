@@ -1,7 +1,6 @@
 package stepdefinitions;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import common.BaseClass;
@@ -61,37 +60,6 @@ public class AddTraining extends BaseClass {
 
     }
 
-    /*
-     * @When("Select the project name")
-     * public void select_the_project_name() throws InterruptedException {
-     * WebElement projectName =
-     * driver.findElement(By.xpath("(//div[@tabindex='0'][@role='combobox'])[1]"));
-     * click(projectName);
-     * System.out.println("Project name clicked");
-     * int n = 5;
-     * for (int i = 1; i <= n; i++) {
-     * winWait(1000);
-     * pressDown(i);
-     * pressEnter();
-     * winWait(1000);
-     * 
-     * }
-     * // winWait(1000);
-     * // pressDown(2);
-     * // pressEnter();
-     * // winWait(1000);
-     * }
-     */
-
-    // @When("Select the project name {string}")
-    // public void select_the_project_name(String data1) throws InterruptedException
-    // {
-    // sendKeys(driver.findElement(By.xpath("//div[@id='«r12»'][text()='ABC']")),
-    // data1);
-    // BaseClass.winWait(1000);
-
-    // }
-
     @When("enter the employee name {string}")
     public void enter_the_employee_name(String data2) throws InterruptedException {
         // JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -117,8 +85,19 @@ public class AddTraining extends BaseClass {
 
     @When("select the training type {string}")
     public void select_the_training_type(String data5) throws InterruptedException {
-        sendKeys(driver.findElement(By.xpath("//div[text()='Udemy']")), data5);
-        BaseClass.winWait(1000);
+
+        WebElement trainingType = driver.findElement(By.xpath("(//div[@role='combobox'])[2]"));
+        click(trainingType);
+        System.out.println("Training type clicked==");
+        int n = Integer.parseInt(data5);
+        winWait(1000);
+        pressDown(n);
+        winWait(1000);
+        pressEnter();
+        winWait(1000);
+
+        // sendKeys(driver.findElement(By.xpath("//div[text()='Udemy']")), data5);
+        // BaseClass.winWait(1000);
 
     }
 
@@ -138,10 +117,22 @@ public class AddTraining extends BaseClass {
 
     @When("select the status {string}")
     public void select_the_status(String data8) throws InterruptedException {
-        BaseClass.winWait(1000);
-        sendKeys(driver.findElement(By.xpath("//div[text()='Completed']")), data8);
+
+        WebElement status = driver.findElement(By.xpath("(//div[@tabindex='0'][@role='combobox'])[3]"));
+        click(status);
+        System.out.println("Status clicked==");
+        int n = Integer.parseInt(data8);
+        winWait(1000);
+        pressUp(n);
+        // pressDown(n);
+        winWait(1000);
         pressEnter();
-        BaseClass.winWait(1000);
+        winWait(1000);
+
+        // BaseClass.winWait(1000);
+        // sendKeys(driver.findElement(By.xpath("//div[text()='Completed']")), data8);
+        // pressEnter();
+        // BaseClass.winWait(1000);
 
     }
 
