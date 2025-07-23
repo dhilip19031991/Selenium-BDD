@@ -1,4 +1,4 @@
-@regression
+@regression@sanity
 Feature: React App Emp Training Records Edit
 
  Scenario: Edit first record sucessfully
