@@ -1,4 +1,4 @@
-@sa1
+@smoke
 Feature: Mary_Web_AddToCart_RecommendedItems
 
 Background:

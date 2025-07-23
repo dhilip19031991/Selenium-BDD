@@ -1,4 +1,4 @@
-@smoke91
+@regression
 Feature: Mary_Web_Brand Products
 
 Background:
