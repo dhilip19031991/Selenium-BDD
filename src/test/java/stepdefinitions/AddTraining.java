@@ -47,16 +47,41 @@ public class AddTraining extends BaseClass {
 
     }
 
-    @When("Select the project name")
-    public void select_the_project_name() throws InterruptedException {
-        WebElement projectName = driver.findElement(By.xpath("//input[@name='projectName']"));
+    @When("Select the project name {string}")
+    public void select_the_project_name(String index) throws InterruptedException {
+        WebElement projectName = driver.findElement(By.xpath("(//div[@tabindex='0'][@role='combobox'])[1]"));
         click(projectName);
+        System.out.println("Project name clicked==========");
+        int n = Integer.parseInt(index);
         winWait(1000);
-        pressDown(2);
+        pressDown(n);
+        winWait(1000);
         pressEnter();
         winWait(1000);
 
     }
+
+    /*
+     * @When("Select the project name")
+     * public void select_the_project_name() throws InterruptedException {
+     * WebElement projectName =
+     * driver.findElement(By.xpath("(//div[@tabindex='0'][@role='combobox'])[1]"));
+     * click(projectName);
+     * System.out.println("Project name clicked");
+     * int n = 5;
+     * for (int i = 1; i <= n; i++) {
+     * winWait(1000);
+     * pressDown(i);
+     * pressEnter();
+     * winWait(1000);
+     * 
+     * }
+     * // winWait(1000);
+     * // pressDown(2);
+     * // pressEnter();
+     * // winWait(1000);
+     * }
+     */
 
     // @When("Select the project name {string}")
     // public void select_the_project_name(String data1) throws InterruptedException
