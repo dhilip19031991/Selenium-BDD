@@ -67,6 +67,14 @@ public class BaseClass {
         }
     }
 
+    public static void pressUp(int count) throws InterruptedException {
+        Actions actions = new Actions(driver);
+        for (int i = 0; i < count; i++) {
+            actions.sendKeys(Keys.UP).perform();
+            Thread.sleep(500); // slight wait to simulate user interaction
+        }
+    }
+
     public static void selectOptions_Index(WebElement dropdown, int index) throws InterruptedException {
         Select sc = new Select(dropdown);
         List<WebElement> options = sc.getOptions();
