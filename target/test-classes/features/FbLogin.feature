@@ -4,7 +4,7 @@ Feature: Mary_Web_Login Page with Scenario outline
 #Background: Browser launch
 #Given launch the url
 
-@multiple 
+
 Scenario Outline: Validation of Login Page
 Given launching url
 When user enters the userone "<username>"
