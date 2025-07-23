@@ -1,4 +1,4 @@
-@ss
+@regression
 Feature: Mary_Web_Verify Practice page
 
 Background: 

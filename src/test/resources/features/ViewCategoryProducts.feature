@@ -1,4 +1,4 @@
-@smoke8
+@regression
 Feature: Mary_Web_View Category Products
 
 Background:

@@ -1,4 +1,4 @@
-@santity9
+@smoke
 Feature: Mary_Web_Add Review On Product
 
 Background:

@@ -1,5 +1,5 @@
 
-@Reg_fl
+@smoke
 Feature: Mary_Web_Add mobile to cart
 
 Background:
