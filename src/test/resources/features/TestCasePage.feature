@@ -1,19 +1,19 @@
 
-@rg2
+@regression
 Feature: Mary_Web_Test Case Page, Product Detail page, Add to cart, contact us form, SignUp details
 
 
     #   Background: launching url
     #      Given launching the url "https://www.automationexercise.com/"
 
-    @reg_1
+    
     Scenario: Verify Test Case Page
         Given launching the url "https://www.automationexercise.com/"
         When verify that the home page is visible successfully
         And Click on Test Cases button
         Then Verify that the user is navigated to test cases page successfully
 
-    @reg_2
+  
     Scenario: Verify Product Detail page
         Given launching the url "https://www.automationexercise.com/"
         When verify that the home page is visible successfully
@@ -23,7 +23,7 @@ Feature: Mary_Web_Test Case Page, Product Detail page, Add to cart, contact us f
         And user is landed to product detail page
         Then Verify that detail is visible: product name, category, price, availability, condition, brand
 
-    @reg_3
+   
     Scenario: Add Products in cart
         Given launching the url "https://www.automationexercise.com/"
         When verify that the home page is visible successfully
@@ -32,7 +32,7 @@ Feature: Mary_Web_Test Case Page, Product Detail page, Add to cart, contact us f
         And click on Add to cart button
         Then verify if the product is added to cart successfully
 
-    @reg_4
+  
     Scenario: Contact us form
         Given launching the url "https://www.automationexercise.com/"
         When verify that the home page is visible successfully
@@ -48,7 +48,7 @@ Feature: Mary_Web_Test Case Page, Product Detail page, Add to cart, contact us f
         Then Verify success message "Success! Your details have been submitted successfully." is visible
         And Click Home button and verify that landed to home page successfully "home"
 
-    @regression_5
+   
     Scenario: Signup page
         Given launching the url "https://www.automationexercise.com/"
         When verify that the home page is visible successfully

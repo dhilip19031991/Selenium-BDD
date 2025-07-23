@@ -1,4 +1,4 @@
-@sm1
+@regression
 Feature: Mary_Web_Login Page with Scenario outline
 
 #Background: Browser launch

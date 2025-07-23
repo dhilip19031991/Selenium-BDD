@@ -1,5 +1,5 @@
 @smoke
-Feature: Add a new training
+Feature: Mary_Web_Add a new training
 
 Scenario Outline: Validating the creation of new training
 
