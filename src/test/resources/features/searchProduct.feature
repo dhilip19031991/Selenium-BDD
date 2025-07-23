@@ -1,3 +1,4 @@
+@regression
 Feature: Dhilip_Web_Search Product Feature
 
 Scenario: verify product searched in search option  

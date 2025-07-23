@@ -1,3 +1,4 @@
+@regression
 Feature: Dhilip_Web_Test case page
 
 Scenario: verify test page works

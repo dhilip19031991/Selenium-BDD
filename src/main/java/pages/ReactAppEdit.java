@@ -26,6 +26,16 @@ public void projectNameEmployeeNameVisible(){
     boolean employeeNameisVisible=employeeNameElement.isDisplayed();
     Assert.assertTrue("Employee Name not visible", employeeNameisVisible);
 }
+public void searchEmployeename(String employeename){
+   WebElement serachemployeename= driver.findElement(By.id("«r8»"));
+    serachemployeename.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
+    serachemployeename.sendKeys(employeename);
+}
+public void searchCourse(String course){
+   WebElement serachcourse= driver.findElement(By.id("«r9»"));
+    serachcourse.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
+    serachcourse.sendKeys(course);
+}
 public void editTrainingClick(){
     driver.findElement(By.xpath("//button[@aria-label=\"edit\"][1]")).click();
 }
@@ -46,5 +56,8 @@ public void editCourse(String course){
 }
 public void updateClick(){
     driver.findElement(By.xpath("//button[text()='Update']")).click();
+}
+public void deleteTrainingClick(){
+    driver.findElement(By.xpath("//button[@aria-label='delete'][1]")).click();
 }
 }

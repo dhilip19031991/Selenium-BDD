@@ -39,5 +39,20 @@ edit.editCourse(course);
 public void click_on_update_button() {
 edit.updateClick();
 }
-
+@Then("search for course {string}")
+public void search_for_course(String course) {
+    edit.searchCourse(course);
+}
+@Then("I change the employeename to {string}")
+public void i_change_the_employeename_to(String employeename) {
+edit.editEmployeeName(employeename);
+}
+@Then("search for employeename {string}")
+public void search_for_employeename(String employeename) {
+   edit.searchEmployeename(employeename); 
+}
+@Then("click delete on frist record")
+public void click_delete_on_frist_record() {
+edit.deleteTrainingClick();
+}
 }
