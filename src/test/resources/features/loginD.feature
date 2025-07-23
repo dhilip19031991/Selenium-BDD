@@ -1,3 +1,4 @@
+@regression
 Feature: Dhilip_Web_Login functionality
 
 Scenario: Successful login

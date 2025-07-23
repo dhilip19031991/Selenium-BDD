@@ -1,3 +1,4 @@
+@regression
 Feature: Dhilip_Web_Products and product detail page
 
 Scenario: verify product details visible

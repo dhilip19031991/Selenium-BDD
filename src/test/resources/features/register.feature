@@ -1,3 +1,4 @@
+@smoke
 Feature: Dhilip_Web_Register Functionality
 
 Scenario: Register User with existing email

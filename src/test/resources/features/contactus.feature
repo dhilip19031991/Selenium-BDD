@@ -1,3 +1,4 @@
+@smoke
 Feature: Dhilip_Web_ContactUs functionality
 
 Scenario: ContactUs Form without file upload
