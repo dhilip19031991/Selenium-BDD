@@ -12,6 +12,40 @@ public class AddTraining extends BaseClass {
 
     // public static WebDriver driver;
 
+    @When("enter the completion percentage {int}")
+    public void enter_the_completion_percentage(Integer int3) throws InterruptedException {
+        int val = int3;
+        int randomPercentage = randomNumber(val);
+        String percentage = String.valueOf(randomPercentage);
+
+        WebElement element = driver.findElement(By.xpath("//input[@name='percentCompleted']"));
+        element.clear();
+        BaseClass.winWait(500);
+        sendKeys(element, percentage);
+        BaseClass.winWait(500);
+
+    }
+
+    @When("enter the name of employee {int}")
+    public void enter_the_name_of_employee(Integer int1) throws InterruptedException {
+        int n = int1;
+        String randStrg = randomString(n);
+
+        sendKeys(driver.findElement(By.xpath("//input[@type='text'][@name='employeeName']")), randStrg);
+        BaseClass.winWait(1000);
+
+    }
+
+    @When("enter the name of trainer {int}")
+    public void enter_the_name_of_trainer(Integer int2) throws InterruptedException {
+        int m = int2;
+        String randStrg2 = randomString(m);
+
+        sendKeys(driver.findElement(By.xpath("//input[@name='trainerName']")), randStrg2);
+        BaseClass.winWait(1000);
+
+    }
+
     @Given("launch the employee training url {string}")
     public void launch_the_employee_training_url(String url) throws InterruptedException {
         winWait(1000);
