@@ -2,7 +2,9 @@ package common;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Random;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -90,4 +92,17 @@ public class BaseClass {
         // Customize this logic as needed
         return System.getenv("JENKINS_HOME") != null || System.getProperty("headless", "false").equals("true");
     }
+
+    public static String randomString(int n) {
+        String rand = RandomStringUtils.randomAlphabetic(n);
+        return rand;
+    }
+
+    public static int randomNumber(int num) {
+        Random random = new Random();
+        int randomNum = random.nextInt(num);
+        return randomNum;
+
+    }
+
 }
