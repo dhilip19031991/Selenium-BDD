@@ -1,8 +1,6 @@
 package stepdefinitions;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 
 import common.BaseClass;
 import io.cucumber.java.en.Then;
@@ -13,17 +11,23 @@ public class BrandProducts extends BaseClass {
     @When("clicking product button")
     public void clicking_product_button() throws InterruptedException {
 
-        winWait(5000);
+        winWait(2000);
         // driver.findElement(By.xpath("//a[@style='color:
-        // orange;']/child::i")).click();
+        // orange;']/following::a[1]")).click();
 
-        WebElement element1 = driver.findElement(By.xpath("//a[@style='color: orange;']/child::i"));
+        driver.get("https://www.automationexercise.com/products");
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click()", element1);
+        // explicitWaitClick("//a[@style='color: orange;']/following::a[1]");
 
-        // explicitWaitClick("//a[@style='color: orange;']");
+        // WebElement element1 = driver.findElement(By.xpath("//a[@style='color:
+        // orange;']/child::i"));
+
+        // JavascriptExecutor js = (JavascriptExecutor) driver;
+        // js.executeScript("arguments[0].click()", element1);
+
+        // // explicitWaitClick("//a[@style='color: orange;']");
         System.out.println("clicked");
+        winWait(2000);
 
     }
 
@@ -68,6 +72,7 @@ public class BrandProducts extends BaseClass {
     public void navigate_back_to_the_home_page() {
         explicitWaitClick("//a[text()=' Home']");
         System.out.println("Navigated successfully");
+        driver.quit();
 
     }
 
