@@ -1,8 +1,6 @@
 package stepdefinitions;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -11,11 +9,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import common.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class AddMobileToCart {
+public class AddMobileToCart extends BaseClass {
 
     public static WebDriver driver;
 
@@ -29,9 +28,12 @@ public class AddMobileToCart {
     @When("I search for the {string}")
     public void i_search_for_the(String val) throws AWTException, InterruptedException {
         driver.findElement(By.xpath("//input[@name='q'][@type='text']")).sendKeys(val);
-        Robot rb = new Robot();
-        rb.keyPress(KeyEvent.VK_ENTER);
-        rb.keyRelease(KeyEvent.VK_ENTER);
+        Thread.sleep(2000);
+        driver.findElement(
+                By.xpath("//button[@type='submit'][contains(@aria-label,'Search for Products, Brands and More')]"))
+                .click();
+
+        // pressEnter();
         Thread.sleep(2000);
     }
 

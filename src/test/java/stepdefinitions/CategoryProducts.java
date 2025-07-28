@@ -5,6 +5,13 @@ import io.cucumber.java.en.When;
 
 public class CategoryProducts extends BaseClass {
 
+    @When("click product button")
+    public void click_product_button() throws InterruptedException {
+        winWait(500);
+        driver.get("https://www.automationexercise.com/products");
+        winWait(2000);
+    }
+
     @When("click on Category Women")
     public void click_on_category_women() throws InterruptedException {
         explicitWaitClick("(//a[@data-toggle='collapse'][@data-parent='#accordian'])[1]");

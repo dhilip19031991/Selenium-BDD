@@ -6,7 +6,7 @@ Given launching the url "https://www.automationexercise.com/"
 
 
 Scenario: View products based on category
-When click the product button
+When click product button
 And Verify user entered the all products page
 And click on Category Women
 And click on a sub category 
