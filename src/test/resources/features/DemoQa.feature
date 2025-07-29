@@ -1,3 +1,4 @@
+@smoke
 Feature: Dhilip_DemoQa_Web_Automation
 
 Scenario: login user for book store Application

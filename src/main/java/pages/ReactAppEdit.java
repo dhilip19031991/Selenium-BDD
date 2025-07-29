@@ -82,4 +82,18 @@ public void deleteAllByCourseRecords(String coursename){
         }
         System.out.println("All reocrds deleted for course: "+ coursename);    
 }
+public void filterStartDate(String startdate){
+    WebElement startDateElement=driver.findElement(By.id("«rd»"));
+    startDateElement.sendKeys(startdate);
+}
+public void verifyRecordswithGivenStartDate(String expecteddate){
+List<WebElement> rows=driver.findElements(By.xpath("//table/tbody/tr"));
+for (WebElement row : rows) {
+        String date = row.findElement(By.xpath("//td[6]")).getText().trim();
+        if (!date.equals(expecteddate)) {
+            throw new AssertionError("Date mismatch! Expected: " + expecteddate + ", Found: " + date);
+        }
+}
+System.out.println("All records have the date: " + expecteddate);
+}
 }
