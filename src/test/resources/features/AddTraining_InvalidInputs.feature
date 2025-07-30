@@ -1,4 +1,4 @@
-@smokeQ
+@smoke
 Feature: Mary_Web_Add a new training_ Invalid input
 
 
