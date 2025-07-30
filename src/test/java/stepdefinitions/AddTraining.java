@@ -1,7 +1,13 @@
 package stepdefinitions;
 
+import java.io.IOException;
+import java.time.Duration;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import common.BaseClass;
 import io.cucumber.java.en.Given;
@@ -11,6 +17,32 @@ import io.cucumber.java.en.When;
 public class AddTraining extends BaseClass {
 
     // public static WebDriver driver;
+
+    @Then("verify if the error msg is shown")
+    public void verify_if_the_error_msg_is_shown() throws IOException, InterruptedException {
+
+        winWait(5000);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        try {
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            alert.accept();
+            System.out.println("Alert Handled======");
+        } catch (Exception e) {
+            System.out.println("Alert disappeared");
+        } finally {
+            System.out.println("Error msg is shown");
+        }
+
+        // try {
+        // Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        // System.out.println("Alert Text: " + alert.getText());
+        // alert.accept();
+        // } catch (Exception e) {
+        // System.out.println("Alert not found or disappeared");
+        // }
+
+    }
 
     @When("enter the completion percentage {int}")
     public void enter_the_completion_percentage(Integer int3) throws InterruptedException {
@@ -181,10 +213,25 @@ public class AddTraining extends BaseClass {
     }
 
     @When("click the add button")
-    public void click_the_add_button() throws InterruptedException {
+    public void click_the_add_button() throws InterruptedException, IOException {
         explicitWaitClick("//button[@type='button'][text()='Add']");
         BaseClass.winWait(1000);
+        takesScreenshot();
+        BaseClass.winWait(500);
 
+        // takesScreenshot1();
+
+        // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+        // try {
+        // Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        // System.out.println("Alert Text: " + alert.getText());
+        // alert.accept();
+        // } catch (Exception e) {
+        // System.out.println("Alert not found or disappeared");
+        // }
+
+        // takesScreenshot1();
     }
 
     @Then("verify if the page is navigated to details page")
