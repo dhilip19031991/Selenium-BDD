@@ -59,4 +59,12 @@ edit.deleteTrainingClick();
 public void delete_all_records_of_course(String coursename) {
 edit.deleteAllByCourseRecords(coursename);
 }
+@Then("filter Start Date by {string}")
+public void filter_start_date_by(String startdate) {
+edit.filterStartDate(startdate);
+}
+@Then("verify filtered records have date {string}")
+public void verify_filtered_records_have_date(String expecteddate) {
+edit.verifyRecordswithGivenStartDate(expecteddate);
+}
 }
