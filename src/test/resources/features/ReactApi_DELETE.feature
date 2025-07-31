@@ -1,3 +1,4 @@
+@smoke
 Feature: Mary_Web_ReactApp_ API_DELETE
 
 @delete
