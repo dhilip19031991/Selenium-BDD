@@ -7,15 +7,24 @@ import org.junit.Assert;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import pages.ReactApiTraining;
+
 
 public class ReactApiTrainingSteps {
-ReactApiTraining reactapitraining= new ReactApiTraining();
-Response response;
+
+private Response response;
+
 @Given("url and getting all training records")
-public void url_and_getting_all_training_records() {
-    response = reactapitraining.allTrainingRecords();
+    public void url_and_getting_all_training_records() {
+    response = RestAssured
+    .given()
+    .header("Accept", "application/json")
+    .when()
+    .get("http://10.192.190.130:5000/api/trainings")
+    .then()
+    .extract()
+    .response();
 }
 @Then("verify response code should be {int}")
 public void verify_response_code_should_be(int expectedstatuscode) {
