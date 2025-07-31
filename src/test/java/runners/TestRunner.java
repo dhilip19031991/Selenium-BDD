@@ -10,8 +10,8 @@ import io.cucumber.junit.CucumberOptions;
                 "pages" }, plugin = {
                                 "pretty", "html:target/cucumber-reports.html",
                                 "junit:target/junit-results.xml",
-                                "json:target/cucumber.json" }, monochrome = true, 
-                 // tags = "@smk", 
-                 dryRun = false)
+                                "json:target/cucumber.json" }, monochrome = true,
+                // tags = "@smk",
+                dryRun = false)
 public class TestRunner {
 }
