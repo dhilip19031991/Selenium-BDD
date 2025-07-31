@@ -28,12 +28,17 @@ Scenario: Search course edit employee name first record
  Then search for course "Auto"
  Then click delete on frist record
 
- Scenario: Search course and delete all records
+@demo
+ Scenario Outline: Search course and delete all records
  Given user in on react app page
  When user click on training summary
  Then verify user is on training records projectName, EmployeeName
- Then search for course "selenium"
- Then delete all records of "Selenium" course
+ Then search for course "<coursename>"
+ Then delete all records of "<coursename>" course
+Examples:
+    | coursename |
+    | Java       |
+    | Selenium   |
 
 Scenario: filter by Start date and verify date with filter records
  Given user in on react app page

@@ -11,7 +11,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 
-public class ReactApiTrainingSteps {
+public class ReactApiSteps {
 
 private Response response;
 
