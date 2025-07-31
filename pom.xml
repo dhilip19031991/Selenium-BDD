@@ -69,7 +69,6 @@
     <groupId>io.rest-assured</groupId>
     <artifactId>rest-assured</artifactId>
     <version>5.5.5</version>
-    <scope>test</scope>
 </dependency>
 
         <!-- Cucumber Reporting (optional) -->
@@ -84,12 +83,7 @@
     <artifactId>commons-lang3</artifactId>
     <version>3.18.0</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
-<dependency>
-    <groupId>io.rest-assured</groupId>
-    <artifactId>rest-assured</artifactId>
-    <version>5.5.5</version>
-</dependency>
+
     </dependencies>
 
     <build>
