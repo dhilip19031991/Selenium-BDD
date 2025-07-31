@@ -1,7 +1,7 @@
-@put
+@smoke
 Feature: Mary_Web_ReactApp_ API_PUT
 
-
+@put
 Scenario: Verify PUT /api/trainings returns 200 status
 
 Given The base URI of API is "http://10.192.190.130:5000"
