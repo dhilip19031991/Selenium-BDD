@@ -1,4 +1,4 @@
-@smoke_api
+@smoke_API
 Feature: Mary_Web_ReactApp_ API_PUT
 
 @put
