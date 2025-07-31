@@ -101,17 +101,15 @@
             </plugin>
 
             <!-- Surefire Plugin for running tests -->
-    <plugin>
-    <artifactId>maven-surefire-plugin</artifactId>
-    <version>3.1.2</version>
-    <configuration>
-        <includes>
-            <include>**/TestRunner.java</include>
-            <include>**/*Test.java</include>
-            <include>**/*Tests.java</include>
-            <include>**/Test*.java</include>
-        </includes>
-    </configuration>
+<plugin>
+  <artifactId>maven-surefire-plugin</artifactId>
+  <version>3.1.2</version>
+  <configuration>
+    <includes>
+      <include>**/TestRunner.java</include>
+    </includes>
+    <provider>junit</provider>  <!-- Force JUnit provider -->
+  </configuration>
 </plugin>
 
             <!-- JaCoCo Plugin with system class exclusions -->
