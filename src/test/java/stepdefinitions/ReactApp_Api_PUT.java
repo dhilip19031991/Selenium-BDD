@@ -11,7 +11,7 @@ public class ReactApp_Api_PUT {
     @When("I send a PUT request to the API with endpoint {string}")
     public void i_send_a_put_request_to_the_api_with_endpoint(String endpointB) {
 
-        String response3 = given().log().all().queryParam("employee", "688b45f5f91ef3e7e477cb5b")
+        String response3 = given().log().all()
                 .header("Content-Type", "application/json")
 
                 .body("{\r\n" + //
