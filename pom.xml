@@ -101,22 +101,16 @@
             </plugin>
 
             <!-- Surefire Plugin for running tests -->
-            <plugin>
+    <plugin>
     <artifactId>maven-surefire-plugin</artifactId>
     <version>3.1.2</version>
     <configuration>
         <includes>
-            <include>**/TestRunner.java</include>  <!-- for cucumber JUnit runner -->
-            <include>**/*Test.java</include>       <!-- for TestNG tests -->
+            <include>**/TestRunner.java</include>
+            <include>**/*Test.java</include>
+            <include>**/*Tests.java</include>
+            <include>**/Test*.java</include>
         </includes>
-        <providers>
-            <provider>
-                <name>junit</name>  <!-- for cucumber junit tests -->
-            </provider>
-            <provider>
-                <name>testng</name> <!-- for TestNG tests -->
-            </provider>
-        </providers>
     </configuration>
 </plugin>
 
