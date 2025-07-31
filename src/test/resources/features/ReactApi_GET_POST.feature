@@ -1,5 +1,5 @@
 
-@smoke
+@smoke1
 Feature: Mary_Web_ReactApp_ API GET and POST
 
 
