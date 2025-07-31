@@ -1,4 +1,3 @@
-
 Feature: Dhilip_React API training
 
 Scenario: Get method using react app all training records

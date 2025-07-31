@@ -7,14 +7,17 @@ Given launch the employee training url "http://10.192.190.130:3000/"
 When click the add training button
 And verify the user is navigated to the add training page
 And Select the project name "<index>"
-And enter the employee name "<name>"
+#And enter the employee name "<name>"
+And enter the name of employee 7
 And enter the course "<course>"
-And enter the trainer name "<trainerName>"
+#And enter the trainer name "<trainerName>"
+And enter the name of trainer 6
 And select the training type "<trainingType>"
 And enter the start date "<startDate>"
 And enter the end date "<endDate>"
 And select the status "<status>"
-And enter the percentage completed "<percentage>"
+#And enter the percentage completed "<percentage>"
+And enter the completion percentage 100
 And click the add button 
 Then verify if the page is navigated to details page
 

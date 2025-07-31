@@ -1,7 +1,13 @@
 package stepdefinitions;
 
+import java.io.IOException;
+import java.time.Duration;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import common.BaseClass;
 import io.cucumber.java.en.Given;
@@ -11,6 +17,66 @@ import io.cucumber.java.en.When;
 public class AddTraining extends BaseClass {
 
     // public static WebDriver driver;
+
+    @Then("verify if the error msg is shown")
+    public void verify_if_the_error_msg_is_shown() throws IOException, InterruptedException {
+
+        winWait(5000);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        try {
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            alert.accept();
+            System.out.println("Alert Handled======");
+        } catch (Exception e) {
+            System.out.println("Alert disappeared");
+        } finally {
+            System.out.println("Error msg is shown");
+        }
+
+        // try {
+        // Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        // System.out.println("Alert Text: " + alert.getText());
+        // alert.accept();
+        // } catch (Exception e) {
+        // System.out.println("Alert not found or disappeared");
+        // }
+
+    }
+
+    @When("enter the completion percentage {int}")
+    public void enter_the_completion_percentage(Integer int3) throws InterruptedException {
+        int val = int3;
+        int randomPercentage = randomNumber(val);
+        String percentage = String.valueOf(randomPercentage);
+
+        WebElement element = driver.findElement(By.xpath("//input[@name='percentCompleted']"));
+        element.clear();
+        BaseClass.winWait(500);
+        sendKeys(element, percentage);
+        BaseClass.winWait(500);
+
+    }
+
+    @When("enter the name of employee {int}")
+    public void enter_the_name_of_employee(Integer int1) throws InterruptedException {
+        int n = int1;
+        String randStrg = randomString(n);
+
+        sendKeys(driver.findElement(By.xpath("//input[@type='text'][@name='employeeName']")), randStrg);
+        BaseClass.winWait(1000);
+
+    }
+
+    @When("enter the name of trainer {int}")
+    public void enter_the_name_of_trainer(Integer int2) throws InterruptedException {
+        int m = int2;
+        String randStrg2 = randomString(m);
+
+        sendKeys(driver.findElement(By.xpath("//input[@name='trainerName']")), randStrg2);
+        BaseClass.winWait(1000);
+
+    }
 
     @Given("launch the employee training url {string}")
     public void launch_the_employee_training_url(String url) throws InterruptedException {
@@ -147,10 +213,25 @@ public class AddTraining extends BaseClass {
     }
 
     @When("click the add button")
-    public void click_the_add_button() throws InterruptedException {
+    public void click_the_add_button() throws InterruptedException, IOException {
         explicitWaitClick("//button[@type='button'][text()='Add']");
         BaseClass.winWait(1000);
+        takesScreenshot();
+        BaseClass.winWait(500);
 
+        // takesScreenshot1();
+
+        // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+        // try {
+        // Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        // System.out.println("Alert Text: " + alert.getText());
+        // alert.accept();
+        // } catch (Exception e) {
+        // System.out.println("Alert not found or disappeared");
+        // }
+
+        // takesScreenshot1();
     }
 
     @Then("verify if the page is navigated to details page")

@@ -1,15 +1,22 @@
 package common;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+import java.util.Random;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -90,4 +97,31 @@ public class BaseClass {
         // Customize this logic as needed
         return System.getenv("JENKINS_HOME") != null || System.getProperty("headless", "false").equals("true");
     }
+
+    public static String randomString(int n) {
+        String rand = RandomStringUtils.randomAlphabetic(n);
+        return rand;
+    }
+
+    public static int randomNumber(int num) {
+        Random random = new Random();
+        int randomNum = random.nextInt(num);
+        return randomNum;
+
+    }
+
+    public static void takesScreenshot() throws IOException {
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File src = ts.getScreenshotAs(OutputType.FILE);
+        File path = new File("C:\\Users\\malbert\\Desktop\\screenshots\\WebSample\\Screenshots\\image.jpg");
+        FileHandler.copy(src, path);
+    }
+
+    public static void takesScreenshot1() throws IOException {
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File src = ts.getScreenshotAs(OutputType.FILE);
+        File path = new File("C:\\Users\\malbert\\Desktop\\screenshots\\WebSample\\Screenshots\\name.png");
+        FileHandler.copy(src, path);
+    }
+
 }

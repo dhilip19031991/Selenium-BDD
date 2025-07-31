@@ -1,10 +1,16 @@
 package pages;
 
+import java.time.Duration;
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class ReactAppEdit {
 WebDriver driver;
@@ -59,5 +65,35 @@ public void updateClick(){
 }
 public void deleteTrainingClick(){
     driver.findElement(By.xpath("//button[@aria-label='delete'][1]")).click();
+}
+public void deleteAllByCourseRecords(String coursename){
+    List<WebElement> courseRows=driver.findElements(By.xpath("//td[text()='" + coursename + "']"));
+    if (courseRows.isEmpty()){
+        System.out.println("No records found for course: "+ coursename);
+        return;
+    }
+        while (!courseRows.isEmpty()){
+            WebElement row=courseRows.get(0);
+        WebElement deleteBtn=row.findElement(By.xpath("//button[@aria-label='delete']"));
+            deleteBtn.click();
+            WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.stalenessOf(row));
+            courseRows = driver.findElements(By.xpath("//td[text()='" + coursename + "']"));
+        }
+        System.out.println("All reocrds deleted for course: "+ coursename);    
+}
+public void filterStartDate(String startdate){
+    WebElement startDateElement=driver.findElement(By.id("«rd»"));
+    startDateElement.sendKeys(startdate);
+}
+public void verifyRecordswithGivenStartDate(String expecteddate){
+List<WebElement> rows=driver.findElements(By.xpath("//table/tbody/tr"));
+for (WebElement row : rows) {
+        String date = row.findElement(By.xpath("//td[6]")).getText().trim();
+        if (!date.equals(expecteddate)) {
+            throw new AssertionError("Date mismatch! Expected: " + expecteddate + ", Found: " + date);
+        }
+}
+System.out.println("All records have the date: " + expecteddate);
 }
 }
