@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="233.81" tests="9" skipped="0" failures="3" errors="0">
+<testcase classname="Mary_Web_Add a new training" name="Validating the creation of new training - Example #1.1" time="43.829">
+<system-out><![CDATA[
+Given launch the employee training url "http://10.192.190.130:3000/"........passed
+When click the add training button..........................................passed
+And verify the user is navigated to the add training page...................passed
+And Select the project name "0".............................................passed
+And enter the name of employee 7............................................passed
+And enter the course "Selenium".............................................passed
+And enter the name of trainer 6.............................................passed
+And select the training type "0"............................................passed
+And enter the start date "07232025".........................................passed
+And enter the end date "07252025"...........................................passed
+And select the status "0"...................................................passed
+And enter the completion percentage 100.....................................passed
+And click the add button....................................................passed
+Then verify if the page is navigated to details page........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Mary_Web_Add a new training" name="Validating the creation of new training - Example #1.2" time="38.224">
+<system-out><![CDATA[
+Given launch the employee training url "http://10.192.190.130:3000/"........passed
+When click the add training button..........................................passed
+And verify the user is navigated to the add training page...................passed
+And Select the project name "1".............................................passed
+And enter the name of employee 7............................................passed
+And enter the course "Playwright"...........................................passed
+And enter the name of trainer 6.............................................passed
+And select the training type "1"............................................passed
+And enter the start date "08152025".........................................passed
+And enter the end date "08162025"...........................................passed
+And select the status "1"...................................................passed
+And enter the completion percentage 100.....................................passed
+And click the add button....................................................passed
+Then verify if the page is navigated to details page........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Mary_Web_Add a new training" name="Validating the creation of new training - Example #1.3" time="39.196">
+<system-out><![CDATA[
+Given launch the employee training url "http://10.192.190.130:3000/"........passed
+When click the add training button..........................................passed
+And verify the user is navigated to the add training page...................passed
+And Select the project name "2".............................................passed
+And enter the name of employee 7............................................passed
+And enter the course "Cypress"..............................................passed
+And enter the name of trainer 6.............................................passed
+And select the training type "2"............................................passed
+And enter the start date "10032025".........................................passed
+And enter the end date "10042025"...........................................passed
+And select the status "2"...................................................passed
+And enter the completion percentage 100.....................................passed
+And click the add button....................................................passed
+Then verify if the page is navigated to details page........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Mary_Web_Add a new training" name="Validating the creation of new training - Example #1.4" time="39.122">
+<system-out><![CDATA[
+Given launch the employee training url "http://10.192.190.130:3000/"........passed
+When click the add training button..........................................passed
+And verify the user is navigated to the add training page...................passed
+And Select the project name "3".............................................passed
+And enter the name of employee 7............................................passed
+And enter the course "CSharp"...............................................passed
+And enter the name of trainer 6.............................................passed
+And select the training type "3"............................................passed
+And enter the start date "05172025".........................................passed
+And enter the end date "05182025"...........................................passed
+And select the status "1"...................................................passed
+And enter the completion percentage 100.....................................passed
+And click the add button....................................................passed
+Then verify if the page is navigated to details page........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Mary_Web_Add a new training" name="Validating the creation of new training - Example #1.5" time="41.176">
+<system-out><![CDATA[
+Given launch the employee training url "http://10.192.190.130:3000/"........passed
+When click the add training button..........................................passed
+And verify the user is navigated to the add training page...................passed
+And Select the project name "4".............................................passed
+And enter the name of employee 7............................................passed
+And enter the course "Java".................................................passed
+And enter the name of trainer 6.............................................passed
+And select the training type "2"............................................passed
+And enter the start date "11262025".........................................passed
+And enter the end date "11272025"...........................................passed
+And select the status "2"...................................................passed
+And enter the completion percentage 100.....................................passed
+And click the add button....................................................passed
+Then verify if the page is navigated to details page........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Mary_Web_ReactApp_ API_DELETE" name="Verify DELETE /api/trainings returns 204 status" time="7.899">
+<failure/>
+<system-out><![CDATA[
+Given The base URI of API is "http://10.192.190.130:5000"...................passed
+When I send a DELETE request to the API with endpoint "/api/trainings/688baff7f91ef3e7e477cca6".undefined
+Then I should receive the delete response...................................skipped
+And verify if the status code has "204".....................................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Mary_Web_ReactApp_ API GET and POST" name="Verify GET /api/trainings returns 200 status" time="8.769">
+<system-out><![CDATA[
+Given The base URI of API is "http://10.192.190.130:5000"...................passed
+When I send a GET request to the API with endpoint "/api/trainings".........passed
+Then I should receive the response..........................................passed
+And the status code is "HTTP/1.1 200 OK"....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Mary_Web_ReactApp_ API GET and POST" name="Verify POST /api/trainings returns 201 status" time="7.164">
+<failure/>
+<system-out><![CDATA[
+Given The base URI of API is "http://10.192.190.130:5000"...................passed
+When I send a POST request to the API with endpoint "/api/trainings"........passed
+Then I should receive the post response.....................................undefined
+And verify the status code is "HTTP/1.1 201 Created"........................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Mary_Web_ReactApp_ API_PUT" name="Verify PUT /api/trainings returns 200 status" time="7.801">
+<failure type="java.lang.AssertionError" message="1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;500&gt;.
+">
+<![CDATA[java.lang.AssertionError: 1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
+	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
+	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
+	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
+	at stepdefinitions.ReactApp_Api_PUT.i_send_a_put_request_to_the_api_with_endpoint(ReactApp_Api_PUT.java:15)
+	at ✽.I send a PUT request to the API with endpoint "/api/trainings/688baf82f91ef3e7e477cc9b"(file:///C:/Users/malbert/LATEST_19-07-2025/Selenium-BDD/src/test/resources/features/ReactApi_PUT.feature:8)
+]]>
+</failure>
+<system-out><![CDATA[
+Given The base URI of API is "http://10.192.190.130:5000"...................passed
+When I send a PUT request to the API with endpoint "/api/trainings/688baf82f91ef3e7e477cc9b".failed
+Then I should receive the response3.........................................skipped
+And the status code contains "200"..........................................skipped
+]]></system-out>
+</testcase>
+</testsuite>
