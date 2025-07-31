@@ -44,6 +44,13 @@
             <scope>test</scope>
         </dependency>
 
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.11.0</version>
+    <scope>test</scope>
+</dependency>
+
 <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 <dependency>
     <groupId>com.google.code.gson</groupId>
@@ -95,14 +102,23 @@
 
             <!-- Surefire Plugin for running tests -->
             <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.1.2</version>
-                <configuration>
-                    <includes>
-                        <include>**/TestRunner.java</include>
-                    </includes>
-                </configuration>
-            </plugin>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.1.2</version>
+    <configuration>
+        <includes>
+            <include>**/TestRunner.java</include>  <!-- for cucumber JUnit runner -->
+            <include>**/*Test.java</include>       <!-- for TestNG tests -->
+        </includes>
+        <providers>
+            <provider>
+                <name>junit</name>  <!-- for cucumber junit tests -->
+            </provider>
+            <provider>
+                <name>testng</name> <!-- for TestNG tests -->
+            </provider>
+        </providers>
+    </configuration>
+</plugin>
 
             <!-- JaCoCo Plugin with system class exclusions -->
             <plugin>
