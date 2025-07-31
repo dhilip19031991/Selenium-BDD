@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="19.94" tests="2" skipped="0" failures="0" errors="0">
+<testcase classname="Mary_Web_ReactApp_ API GET and POST" name="Verify GET /api/trainings returns 200 status" time="13.589">
+<system-out><![CDATA[
+Given The base URI of API is "http://10.192.190.130:5000"...................passed
+When I send a GET request to the API with endpoint "/api/trainings".........passed
+Then I should receive the response..........................................passed
+And the status code is "HTTP/1.1 200 OK"....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Mary_Web_ReactApp_ API GET and POST" name="Verify POST /api/trainings returns 201 status" time="6.066">
+<system-out><![CDATA[
+Given The base URI of API is "http://10.192.190.130:5000"...................passed
+When I send a POST request to the API with endpoint "/api/trainings"........passed
+Then I should receive the response..........................................passed
+And verify the status code is "HTTP/1.1 201 Created"........................passed
+]]></system-out>
+</testcase>
+</testsuite>
