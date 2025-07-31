@@ -69,6 +69,11 @@ public class ReactApp_Api_GET_POST {
 
     }
 
+    @Then("I should receive the post response")
+    public void i_should_receive_the_post_response() {
+        System.out.println(response2);
+    }
+
     @Then("verify the status code is {string}")
     public void verify_the_status_code_is(String code) {
         boolean status1 = response2.contains(code);
