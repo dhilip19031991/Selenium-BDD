@@ -1,3 +1,4 @@
+@regression
 Feature: Dhilip_React API training
 @demo
 Scenario: Get method using react app all training records
