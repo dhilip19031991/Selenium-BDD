@@ -15,7 +15,7 @@ public class ReactApp_Api_PUT {
                 .header("Content-Type", "application/json")
 
                 .body("{\r\n" + //
-                        "  \"employeeName\": \"John\",\r\n" + //
+                        "  \"employeeName\": \"Kumari\",\r\n" + //
                         "  \"course\": \"Selenium\",\r\n" + //
                         "  \"startDate\": \"2025-07-24\",\r\n" + //
                         "  \"endDate\": \"2025-07-24\",\r\n" + //
