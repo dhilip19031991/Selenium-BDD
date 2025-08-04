@@ -7,6 +7,7 @@ Then verify response code should be 200
 Then verify response has list of trainings
 Then print first training record
 
+@demo
 Scenario: Crud react app training flow
 Given url and getting all training records
 Then verify response code should be 200
