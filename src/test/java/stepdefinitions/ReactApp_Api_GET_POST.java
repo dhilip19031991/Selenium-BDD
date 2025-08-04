@@ -6,7 +6,7 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
 
-public class ReactApp_ApiSteps {
+public class ReactApp_Api_GET_POST {
 
     private String response;
     private String response2;
@@ -20,7 +20,9 @@ public class ReactApp_ApiSteps {
 
     @When("I send a GET request to the API with endpoint {string}")
     public void i_send_a_get_request_to_the_api_with_endpoint(String endpoint) {
-        String response = given().log().all().header("Content-Type", "application/json")
+        String response = given().log().all()
+                .queryParam("_id", "688b40bdf91ef3e7e477cae9")
+                .header("Content-Type", "application/json")
                 .when().get(endpoint).then().log().all().assertThat().statusCode(200).extract().asString();
 
         this.response = response;
@@ -65,6 +67,11 @@ public class ReactApp_ApiSteps {
 
         this.response2 = response2;
 
+    }
+
+    @Then("I should receive the post response")
+    public void i_should_receive_the_post_response() {
+        System.out.println(response2);
     }
 
     @Then("verify the status code is {string}")
