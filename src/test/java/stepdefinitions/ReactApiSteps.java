@@ -7,6 +7,7 @@ import org.junit.Assert;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -14,6 +15,7 @@ import io.restassured.response.Response;
 public class ReactApiSteps {
 
 private Response response;
+private String createdTrainingId;
 
 @Given("url and getting all training records")
     public void url_and_getting_all_training_records() {
@@ -43,4 +45,73 @@ List<Map<String, Object>> trainings = response.jsonPath().getList("$");
         System.out.println("No training records found");
     }
 }
+@When("I create a new training record")
+public void i_create_a_new_training_record() {
+    String body = "{"
+    + "\"employeeName\": \"Mark\","
+    + "\"course\": \"JavaScript\","
+    + "\"startDate\": \"2025-01-01T00:00:00.000Z\","
+    + "\"endDate\": \"2026-01-01T00:00:00.000Z\","
+    + "\"status\": \"In Progress\","
+    + "\"trainerName\": \"Stalin\","
+    + "\"trainingType\": \"Virtual\","
+    + "\"percentCompleted\": 55,"
+    + "\"projectName\": \"EFG\""
+    + "}";
+    response = RestAssured
+            .given()
+            .header("Content-Type", "application/json")
+            .body(body)
+            .when()
+            .post("http://10.192.190.130:5000/api/trainings")
+            .then()
+            .extract()
+            .response();
+}
+@Then("the response code should be {int}")
+    public void the_response_code_should_be(int expectedStatusCode) {
+        Assert.assertEquals(expectedStatusCode, response.getStatusCode());
+}
+@Then("I store the training ID from response")
+public void i_store_the_training_id_from_response() {
+    createdTrainingId = response.jsonPath().getString("_id");
+    Assert.assertNotNull("Training ID should not be null", createdTrainingId);
+    System.out.println("Stored Training ID: " + createdTrainingId);
+}
+@When("I update the training record using stored ID")
+    public void i_update_the_training_record_using_stored_id() {
+        Assert.assertNotNull("Training ID is not set", createdTrainingId);
+        String updatedBody = "{"
+                + "\"employeeName\": \"MarkAntony\","
+                + "\"course\": \"JavaScript Advanced\","
+                + "\"startDate\": \"2025-01-01T00:00:00.000Z\","
+                + "\"endDate\": \"2026-01-15T00:00:00.000Z\","
+                + "\"status\": \"Completed\","
+                + "\"trainerName\": \"Stalin\","
+                + "\"trainingType\": \"Virtual\","
+                + "\"percentCompleted\": 90,"
+                + "\"projectName\": \"EFG\""
+                + "}";
+
+        response = RestAssured
+                .given()
+                .header("Content-Type", "application/json")
+                .body(updatedBody)
+                .when()
+                .put("http://10.192.190.130:5000/api/trainings/" + createdTrainingId)
+                .then()
+                .extract()
+                .response();
+    }
+@When("I delete the training record using stored ID")
+    public void i_delete_the_training_record_using_stored_id() {
+        Assert.assertNotNull("Training ID is not set", createdTrainingId);
+        response = RestAssured
+                .given()
+                .when()
+                .delete("http://10.192.190.130:5000/api/trainings/" + createdTrainingId)
+                .then()
+                .extract()
+                .response();
+    }
 }
