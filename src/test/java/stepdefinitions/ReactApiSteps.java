@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
+import common.BaseClassD;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,7 +14,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 
-public class ReactApiSteps {
+public class ReactApiSteps extends BaseClassD {
 
 private Response response;
 private String createdTrainingId;
@@ -114,4 +116,23 @@ public void i_store_the_training_id_from_response() {
                 .extract()
                 .response();
     }
+@Then("I verify the new training record is visible on the web UI")
+public void i_verify_the_new_training_record_is_visible_on_the_web_ui() {
+driver.get("http://10.192.190.130:3000/");
+boolean isPresent = !driver.findElements(By.xpath("//td[text()='Mark']")).isEmpty();
+Assert.assertTrue("New training record should be visible on UI", isPresent);
+}
+@Then("I verify the updated training record is reflected on the web UI")
+public void i_verify_the_updated_training_record_is_reflected_on_the_web_ui() {
+driver.get("http://10.192.190.130:3000/");
+boolean isPresent = !driver.findElements(By.xpath("//td[text()='MarkAntony']")).isEmpty();
+Assert.assertTrue("Updated training record should be visible on UI", isPresent);
+}
+@Then("I verify the training record is no longer visible on the web UI")
+public void i_verify_the_training_record_is_no_longer_visible_on_the_web_ui() {
+driver.get("http://10.192.190.130:3000/");
+boolean isNotPresent = driver.findElements(By.xpath("//td[text()='MarkAntony']")).isEmpty();
+Assert.assertTrue("Training record should no longer be visible on UI", isNotPresent);
+}
+
 }
