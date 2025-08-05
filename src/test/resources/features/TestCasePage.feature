@@ -1,6 +1,6 @@
 
-@regression
-Feature: Mary_Web_Test Case Page, Product Detail page, Add to cart, contact us form, SignUp details
+@smoke
+Feature: Web_Automation Exercise_Test Case Page, Product Detail page, Add to cart, contact us form, SignUp details
 
 
     #   Background: launching url

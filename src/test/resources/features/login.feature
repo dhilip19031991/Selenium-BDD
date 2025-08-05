@@ -1,5 +1,5 @@
 @regression
-Feature: Login Functionality
+Feature: Web_Validating Login Functionality
   
   Scenario: Successful login
     Given I open the login page

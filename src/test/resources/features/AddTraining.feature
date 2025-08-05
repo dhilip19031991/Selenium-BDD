@@ -1,5 +1,5 @@
-@smoke_API
-Feature: Mary_Web_Add a new training
+@smoke
+Feature: API_React_Add a new training
 
 Scenario Outline: Validating the creation of new training
 

@@ -1,6 +1,6 @@
 
 @smoke
-Feature: Mary_Web_Add mobile to cart
+Feature: Web_Add mobile to cart
 
 Background:
 Given Launch fURL "https://www.flipkart.com/"

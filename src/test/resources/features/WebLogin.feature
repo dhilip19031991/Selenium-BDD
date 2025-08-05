@@ -1,5 +1,5 @@
 @smoke
-Feature: Mary_Web_Login_Page
+Feature: Web_Login_Page
 
     Scenario: Login with valid credentials
         Given user is on login page
