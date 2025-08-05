@@ -1,5 +1,5 @@
 @regression
-Feature: Dhilip_Web_Login functionality
+Feature: Web_Login functionality
 
 Scenario: Successful login
 Given User is on the login page

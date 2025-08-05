@@ -1,5 +1,5 @@
 @regression
-Feature: Dhilip_Web_Products and product detail page
+Feature: Web_Products and product detail page
 
 Scenario: verify product details visible
 Given Given User is on the home page

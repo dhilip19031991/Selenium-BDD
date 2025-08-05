@@ -1,5 +1,5 @@
 @smoke
-Feature: Dhilip_Web_ContactUs functionality
+Feature: Web_ContactUs functionality
 
 Scenario: ContactUs Form without file upload
 Given User is on the home page

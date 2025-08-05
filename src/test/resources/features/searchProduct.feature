@@ -1,5 +1,5 @@
 @regression
-Feature: Dhilip_Web_Search Product Feature
+Feature: Web_Search Product
 
 Scenario: verify product searched in search option  
 Given Given User is on the home page

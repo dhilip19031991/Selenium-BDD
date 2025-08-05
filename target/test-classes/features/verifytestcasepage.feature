@@ -1,5 +1,5 @@
 @regression
-Feature: Dhilip_Web_Test case page
+Feature: Web_Test case page
 
 Scenario: verify test page works
 Given Given User is on the home page

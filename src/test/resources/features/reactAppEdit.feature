@@ -1,5 +1,5 @@
 @regression
-Feature: React App Emp Training Records Edit
+Feature: React App Emp Training Records Edit and delete
 
  Scenario: Edit first record sucessfully
  Given user in on react app page
