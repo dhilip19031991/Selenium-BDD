@@ -8,6 +8,7 @@ import java.util.Random;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -122,6 +123,14 @@ public class BaseClass {
         File src = ts.getScreenshotAs(OutputType.FILE);
         File path = new File("C:\\Users\\malbert\\Desktop\\screenshots\\WebSample\\Screenshots\\name.png");
         FileHandler.copy(src, path);
+    }
+
+    public static void js_ScrollDown(int i) {
+        driver = new ChromeDriver();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        js.executeScript("window.scrollBy(0,i)");
+
     }
 
 }

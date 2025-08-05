@@ -1,5 +1,9 @@
 package stepdefinitions;
 
+import org.apache.commons.lang.RandomStringUtils;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+
 import common.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -18,24 +22,29 @@ public class ReactApi_P_G_P_D extends BaseClass {
         RestAssured.baseURI = baseURI;
     }
 
-    @When("I send a POST request to the API with endpoint {string} and name {string}")
-    public void i_send_a_post_request_to_the_api_with_endpoint_and_name(String endpoint, String name) {
+    @When("I send a POST request to the API with endpoint {string} and name {int}")
+    public void i_send_a_post_request_to_the_api_with_endpoint_and_name(String endpoint1, Integer int1) {
+
+        int number = int1;
+        String randStr = BaseClass.randomString(number);
+
         response = given().log().all().header("Content-Type", "application/json")
                 .body("{\r\n" +
-                        "    \"employeeName\": \"" + name + "\",\r\n" +
-                        "    \"course\": \"CSharp\",\r\n" +
+                        "    \"employeeName\": \"" + randStr + "\",\r\n" +
+                        "    \"course\": \"Playwright\",\r\n" +
                         "    \"startDate\": \"2025-05-17T00:00:00.000Z\",\r\n" +
                         "    \"endDate\": \"2025-05-18T00:00:00.000Z\",\r\n" +
                         "    \"status\": \"In Progress\",\r\n" +
                         "    \"trainerName\": \"efZyFj\",\r\n" +
                         "    \"trainingType\": \"Virtual\",\r\n" +
                         "    \"percentCompleted\": 82,\r\n" +
-                        "    \"projectName\": \"HIJ\"\r\n" +
+                        "    \"projectName\": \"ABC\"\r\n" +
                         "}")
-                .when().post(endpoint);
+                .when().post(endpoint1);
 
         responseBody = response.then().log().all().assertThat().statusCode(201).extract().asString();
         trainingId = response.jsonPath().getString("_id");
+
     }
 
     @Then("I should receive the post response")
@@ -43,74 +52,95 @@ public class ReactApi_P_G_P_D extends BaseClass {
         System.out.println("POST response: " + responseBody);
     }
 
-    @Then("verify the status code is {string}")
-    public void verify_the_status_code_is(String expectedStatusCode) throws InterruptedException {
-        int expectedCode = Integer.parseInt(expectedStatusCode);
-        int actualCode = response.getStatusCode();
-        // System.out.println(actualCode == expectedCode ? "Created Successfully!" :
-        // "Error code received");
-        if (actualCode == expectedCode) {
-            System.out.println("Created Successfully!");
-            browserLaunch();
-            driver.get("http://10.192.190.130:3000/");
-            Thread.sleep(2000);
-            driver.close();
+    @Then("verify the status code is {string} and post request is successful in API")
+    public void verify_the_status_code_is_and_post_request_is_successful_in_api(String expectedStatusCode) {
 
+        int expected = Integer.parseInt(expectedStatusCode);
+        int actual = response.getStatusCode();
+
+        if (expected == actual) {
+            System.out.println("Post request is successful in API and new training created");
         } else {
-            System.out.println("Error code received");
+            System.out.println("Error code received!");
         }
+
     }
 
-    @When("I send a PUT request to the API with endpoint {string}")
-    public void i_send_a_put_request_to_the_api_with_endpoint(String endpoint) {
+    @Then("validate if a new training is CREATED in the Web")
+    public void validate_if_a_new_training_is_created_in_the_web() throws InterruptedException {
+
+        driver.get("http://10.192.190.130:3000/");
+        Thread.sleep(1000);
+        boolean isPresent = !driver.findElements(By.xpath(
+                "//td[text()='Playwright'][contains(@class,'MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18u8qr0-MuiTableCell-root')]"))
+                .isEmpty();
+
+        Assert.assertTrue(isPresent);
+        System.out.println("New training record is created in Web");
+
+    }
+
+    @When("I send a PUT request to the API with endpoint {string} and name {int}")
+    public void i_send_a_put_request_to_the_api_with_endpoint_and_name(String endpoint2, Integer int2) {
         if (trainingId == null)
             throw new IllegalStateException("Training ID is null. Ensure POST ran before PUT.");
+        int number2 = int2;
+        String name2 = RandomStringUtils.randomAlphabetic(number2);
 
         response = given().log().all().header("Content-Type", "application/json")
                 .body("{\r\n" +
-                        "    \"employeeName\": \"MerlynHema\",\r\n" +
-                        "    \"course\": \"Java\",\r\n" +
-                        "    \"startDate\": \"2025-06-01T00:00:00.000Z\",\r\n" +
-                        "    \"endDate\": \"2025-06-02T00:00:00.000Z\",\r\n" +
-                        "    \"status\": \"Completed\",\r\n" +
-                        "    \"trainerName\": \"UpdatedTrainer\",\r\n" +
-                        "    \"trainingType\": \"Onsite\",\r\n" +
-                        "    \"percentCompleted\": 100,\r\n" +
+                        "    \"employeeName\": \"" + name2 + "\",\r\n" +
+                        "    \"course\": \"Playwright\",\r\n" +
+                        "    \"startDate\": \"2025-05-17T00:00:00.000Z\",\r\n" +
+                        "    \"endDate\": \"2025-05-18T00:00:00.000Z\",\r\n" +
+                        "    \"status\": \"In Progress\",\r\n" +
+                        "    \"trainerName\": \"efZyFj\",\r\n" +
+                        "    \"trainingType\": \"Virtual\",\r\n" +
+                        "    \"percentCompleted\": 82,\r\n" +
                         "    \"projectName\": \"ABC\"\r\n" +
                         "}")
-                .when().put(endpoint + trainingId);
+                .when().put(endpoint2 + trainingId);
 
         responseBody = response.then().log().all().assertThat().statusCode(200).extract().asString();
+
     }
 
-    @Then("I should receive the response3")
-    public void i_should_receive_the_response3() {
+    @Then("I should receive the put response")
+    public void i_should_receive_the_put_response() {
         System.out.println("PUT response: " + responseBody);
     }
 
-    @Then("the status code contains {string}")
-    public void the_status_code_contains(String expectedStatusCode) throws InterruptedException {
-        int expectedCode = Integer.parseInt(expectedStatusCode);
-        int actualCode = response.getStatusCode();
+    @Then("the status code contains {string} and put request is successful in API")
+    public void the_status_code_contains_and_put_request_is_successful_in_api(String code2) {
+        int expected2 = Integer.parseInt(code2);
+        int actual2 = response.getStatusCode();
 
-        if (actualCode == expectedCode) {
-            System.out.println("Updated Successfully!");
-            browserLaunch();
-            driver.get("http://10.192.190.130:3000/");
-            Thread.sleep(3000);
-            driver.close();
-
+        if (expected2 == actual2) {
+            System.out.println("Put request is successful in API and training record got updated.");
         } else {
-            System.out.println("Error code received");
+            System.out.println("Error code received!");
         }
-        // System.out.println(actualCode == expectedCode ? "Updated Successfully!" :
-        // "Error code received");
+
+    }
+
+    @Then("validate if the corresponding record got UPDATED in the Web")
+    public void validate_if_the_corresponding_record_got_updated_in_the_web() throws InterruptedException {
+
+        driver.get("http://10.192.190.130:3000/");
+        Thread.sleep(1000);
+        boolean isPresent1 = !driver.findElements(By.xpath(
+                "//td[text()='Playwright'][contains(@class,'MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18u8qr0-MuiTableCell-root')]"))
+                .isEmpty();
+
+        Assert.assertTrue(isPresent1);
+        System.out.println("Training record got updated in Web!");
+
     }
 
     @When("I send a GET request to the API with endpoint {string}")
-    public void i_send_a_get_request_to_the_api_with_endpoint(String endpoint) {
+    public void i_send_a_get_request_to_the_api_with_endpoint(String endpoint3) {
         response = given().log().all().header("Content-Type", "application/json")
-                .when().get(endpoint);
+                .when().get(endpoint3);
 
         responseBody = response.then().log().all().assertThat().statusCode(200).extract().asString();
     }
@@ -128,12 +158,12 @@ public class ReactApi_P_G_P_D extends BaseClass {
     }
 
     @When("I send a DELETE request to the API with endpoint {string}")
-    public void i_send_a_delete_request_to_the_api_with_endpoint(String endpoint) {
+    public void i_send_a_delete_request_to_the_api_with_endpoint(String endpoint4) {
         if (trainingId == null)
             throw new IllegalStateException("Training ID is null. Ensure POST ran before DELETE.");
 
         response = given().log().all().header("Content-Type", "application/json")
-                .when().delete(endpoint + trainingId);
+                .when().delete(endpoint4 + trainingId);
     }
 
     @Then("I should receive the delete response")
@@ -141,10 +171,30 @@ public class ReactApi_P_G_P_D extends BaseClass {
         System.out.println("DELETE response status code: " + response.getStatusCode());
     }
 
-    @Then("verify if the status code has {string}")
-    public void verify_if_the_status_code_has(String expectedStatusCode) {
-        int expectedCode = Integer.parseInt(expectedStatusCode);
-        int actualCode = response.getStatusCode();
-        System.out.println(actualCode == expectedCode ? "Deleted Successfully!" : "Delete failed.");
+    @Then("verify if the status code has {string} and delete request is successful in API")
+    public void verify_if_the_status_code_has_and_delete_request_is_successful_in_api(String code4) {
+
+        int expectedCode4 = Integer.parseInt(code4);
+        int actualCode4 = response.getStatusCode();
+        if (actualCode4 == expectedCode4) {
+            System.out.println("Delete request is successful in API and training record got deleted.");
+        } else {
+            System.out.println("Delete failed.");
+        }
+
     }
+
+    @Then("validate if the corresponding record got DELETED in the Web")
+    public void validate_if_the_corresponding_record_got_deleted_in_the_web() throws InterruptedException {
+        driver.get("http://10.192.190.130:3000/");
+        Thread.sleep(1000);
+        boolean empty = driver.findElements(By.xpath(
+                "//td[text()='Playwright'][contains(@class,'MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-18u8qr0-MuiTableCell-root')]"))
+                .isEmpty();
+
+        Assert.assertTrue(empty);
+        System.out.println("Training record got deleted in Web!");
+
+    }
+
 }
