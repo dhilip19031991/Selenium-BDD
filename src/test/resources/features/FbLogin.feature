@@ -1,5 +1,5 @@
 @regression
-Feature: Mary_Web_Login Page with Scenario outline
+Feature: Web_Login Page with Scenario outline
 
 #Background: Browser launch
 #Given launch the url
@@ -18,3 +18,13 @@ Examples:
 |Muthu|4567|
 |Dhilip|5436|
 
+
+ Scenario: Login with valid credentials
+        Given user is on login page
+        When Enter valid UserName
+        And Enter valid Password
+        And Click the login button2 
+        Then user is redirected to the home Page
+
+# marymargaret.albert@expleogroup.com
+# Maggy@2008

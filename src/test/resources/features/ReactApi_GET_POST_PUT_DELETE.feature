@@ -1,5 +1,5 @@
 @smoke
-Feature: Mary_Web_ReactApp_ API
+Feature: API_ReactApp_E-E_Validation
 
 Background:
   Given The base URI of API is "http://10.192.190.130:5000"

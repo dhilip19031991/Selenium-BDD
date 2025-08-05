@@ -1,5 +1,5 @@
 @smoke
-Feature: Mary_Web_Add a new training_ Invalid input
+Feature: API_React_Add a new training_ Invalid input
 
 
 
