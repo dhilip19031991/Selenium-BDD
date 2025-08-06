@@ -1,5 +1,5 @@
 @regression
-Feature: Web_Application Functionalities
+Feature: Web_AutomationExercise_Functionalities
 
 Scenario: verify test case page works
 Given Given User is on the home page
