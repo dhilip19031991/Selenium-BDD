@@ -1,5 +1,5 @@
 @smoke
-Feature: API_React_Add a new training_ Invalid input
+Feature: API_React_Add a new training_Invalid input
 
 
 

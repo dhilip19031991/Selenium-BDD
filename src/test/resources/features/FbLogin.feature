@@ -1,5 +1,5 @@
 @regression
-Feature: Web_Login Page with Scenario outline
+Feature: Web_fb_Login Page with Scenario outline
 
 #Background: Browser launch
 #Given launch the url
