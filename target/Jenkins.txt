@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'dhilip', url: 'https://github.com/SanthoshSanto18/Selenium-BDD.git'
+                git branch: 'main', url: 'https://github.com/SanthoshSanto18/Selenium-BDD.git'
             }
         }
         stage('Build') {
