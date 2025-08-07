@@ -216,8 +216,6 @@ public class AddTraining extends BaseClass {
     public void click_the_add_button() throws InterruptedException, IOException {
         explicitWaitClick("//button[@type='button'][text()='Add']");
         BaseClass.winWait(1000);
-        takesScreenshot();
-        BaseClass.winWait(500);
 
         // takesScreenshot1();
 

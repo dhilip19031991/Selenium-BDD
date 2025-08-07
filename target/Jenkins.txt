@@ -1,0 +1,37 @@
+pipeline {
+    agent { label 'WinNode' }
+    parameters {
+        choice(
+            name: 'Cucumber_Tags',
+            choices: ['All', '@demo', '@smoke', '@regression', '@smoke or @regression'],
+            description: 'Select the Cucumber tags to run (choose "all" to run all tests)'
+        )
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'dhilip', url: 'https://github.com/SanthoshSanto18/Selenium-BDD.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                script {
+                    if (params.Cucumber_Tags == 'All') {
+                        echo "Running all tests (no tag filter)"
+                        bat 'mvn clean test'
+                    } else {
+                        echo "Running tests with tag(s): ${params.Cucumber_Tags}"
+                        bat "mvn clean test -Dcucumber.filter.tags=\"${params.Cucumber_Tags}\""
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Publishing test reports...'
+            cucumber jsonReportDirectory: 'target', fileIncludePattern: 'cucumber.json'
+            junit 'target/junit-results.xml'
+        }
+    }
+}
