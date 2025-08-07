@@ -44,6 +44,7 @@ public class ReactApi_P_G_P_D extends BaseClass {
 
         responseBody = response.then().log().all().assertThat().statusCode(201).extract().asString();
         trainingId = response.jsonPath().getString("_id");
+        BaseClass.userID = trainingId;
 
     }
 
@@ -82,7 +83,7 @@ public class ReactApi_P_G_P_D extends BaseClass {
 
     @When("I send a PUT request to the API with endpoint {string} and name {int}")
     public void i_send_a_put_request_to_the_api_with_endpoint_and_name(String endpoint2, Integer int2) {
-        if (trainingId == null)
+        if (BaseClass.userID == null)
             throw new IllegalStateException("Training ID is null. Ensure POST ran before PUT.");
         int number2 = int2;
         String name2 = RandomStringUtils.randomAlphabetic(number2);
@@ -99,7 +100,7 @@ public class ReactApi_P_G_P_D extends BaseClass {
                         "    \"percentCompleted\": 82,\r\n" +
                         "    \"projectName\": \"ABC\"\r\n" +
                         "}")
-                .when().put(endpoint2 + trainingId);
+                .when().put(endpoint2 + BaseClass.userID);
 
         responseBody = response.then().log().all().assertThat().statusCode(200).extract().asString();
 
@@ -159,11 +160,11 @@ public class ReactApi_P_G_P_D extends BaseClass {
 
     @When("I send a DELETE request to the API with endpoint {string}")
     public void i_send_a_delete_request_to_the_api_with_endpoint(String endpoint4) {
-        if (trainingId == null)
+        if (BaseClass.userID == null)
             throw new IllegalStateException("Training ID is null. Ensure POST ran before DELETE.");
 
         response = given().log().all().header("Content-Type", "application/json")
-                .when().delete(endpoint4 + trainingId);
+                .when().delete(endpoint4 + BaseClass.userID);
     }
 
     @Then("I should receive the delete response")
