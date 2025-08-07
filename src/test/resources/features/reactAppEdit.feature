@@ -1,5 +1,5 @@
 @regression
-Feature: Web_ReactApp_EmpTrainingRecords_Edit_and_delete
+Feature: Web_React_Edit_And_Delete
 
  Scenario: Edit first record sucessfully
  Given user in on react app page

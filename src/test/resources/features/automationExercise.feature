@@ -1,5 +1,5 @@
 @smoke
-Feature: Web_Automation Exercise_Add Review, recommended items to cart, view products_brand, category
+Feature: Web_AutomationExercise_Validation_Scenarios_2
 
 
 

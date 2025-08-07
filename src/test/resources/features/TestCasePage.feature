@@ -1,6 +1,6 @@
 
 @smoke
-Feature: Web_Automation Exercise_Test Case Page, Product Detail page, Add to cart, contact us form, SignUp details
+Feature: Web_AutomationExercise_Validation_Scenarios_1
 
 
     #   Background: launching url

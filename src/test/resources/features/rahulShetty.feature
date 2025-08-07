@@ -1,5 +1,5 @@
 @smoke
-Feature: Web_RahulShetty_Validation of frames, alerts, elements in practice page
+Feature: Web_RahulShetty_Validation_Scenarios
 
     Scenario: Switch to iframe and verify content
         Given I navigate to the automation practice page
