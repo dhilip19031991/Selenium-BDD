@@ -1,5 +1,5 @@
 @smoke
-Feature: Web_DemoQa_Automation
+Feature: Web_DemoQa_Register_Login_Validation
 
 Scenario: login user for book store Application
 Given User is on the DemoQA login page

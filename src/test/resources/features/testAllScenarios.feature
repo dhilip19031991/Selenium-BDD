@@ -1,5 +1,5 @@
 @regression
-Feature: Web_AutomationExercise_Functionalities
+Feature: Web_AutomationExercise_Register_Functionality
 
 Scenario: Successful login
 Given User is on the login page

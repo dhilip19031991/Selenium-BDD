@@ -1,5 +1,5 @@
 @regression
-Feature: Web_DemoSaas_Validation_Login
+Feature: Web_DemoSaas_Login_Validation
   
   Scenario: Successful login
     Given I open the login page
