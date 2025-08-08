@@ -1,6 +1,6 @@
 
 @smoke
-Feature: Web_AutomationExercise_Validation_Scenarios_1
+Feature: Web_AutomationExercise_Forms_Validation
 
 
     #   Background: launching url

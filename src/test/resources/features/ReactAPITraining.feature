@@ -1,5 +1,5 @@
 @regression
-Feature: API_React_Training
+Feature: API_Web_React_CRUD_Scenarios
 @demo
 Scenario: Get method using react app all training records
 Given url and getting all training records

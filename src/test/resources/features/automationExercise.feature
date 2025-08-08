@@ -1,6 +1,5 @@
 @smoke
-Feature: Web_AutomationExercise_Validation_Scenarios_2
-
+Feature: Web_AutomationExercise_Add_To_Cart_Scenario
 
 
     Scenario Outline: Adding review for product and validating response
