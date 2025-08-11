@@ -21,7 +21,7 @@ pipeline {
                         bat 'mvn clean test'
                     } else {
                         echo "Running tests with tag(s): ${params.Cucumber_Tags}"
-                        bat "mvn clean test -Dcucumber.filter.tags=\"${params.Cucumber_Tags}\"" //tag
+                        bat "mvn clean test -Dcucumber.filter.tags=\"${params.Cucumber_Tags}\""
                     }
                 }
             }
