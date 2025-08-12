@@ -1,12 +1,12 @@
 package stepdefinitions;
 
-import common.BaseClassD;
+import common.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.VerifyTestCasePage;
 
-public class VerifyTestCasePageSteps extends BaseClassD {
+public class VerifyTestCasePageSteps extends BaseClass {
 
     VerifyTestCasePage testcasepage ;
     @Given("Given User is on the home page")

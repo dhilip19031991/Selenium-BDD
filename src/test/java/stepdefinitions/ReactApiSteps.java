@@ -6,7 +6,7 @@ import java.util.Map;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
-import common.BaseClassD;
+import common.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,7 +14,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 
-public class ReactApiSteps extends BaseClassD {
+public class ReactApiSteps extends BaseClass {
 
 private Response response;
 private String createdTrainingId;

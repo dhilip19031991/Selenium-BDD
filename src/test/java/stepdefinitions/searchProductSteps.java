@@ -1,10 +1,10 @@
 package stepdefinitions;
 
-import common.BaseClassD;
+import common.BaseClass;
 import io.cucumber.java.en.Then;
 import pages.SearchProduct;
 
-public class searchProductSteps extends BaseClassD {
+public class searchProductSteps extends BaseClass {
 SearchProduct searchproduct;
 
 @Then("Enter product name in search input {string}")

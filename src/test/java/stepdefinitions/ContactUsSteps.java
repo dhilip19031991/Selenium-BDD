@@ -1,12 +1,11 @@
 package stepdefinitions;
 
-import pages.ContactUsForm;
-
-import common.BaseClassD;
+import common.BaseClass;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.ContactUsForm;
 
-public class ContactUsSteps extends BaseClassD {
+public class ContactUsSteps extends BaseClass {
     ContactUsForm contactus;
 @Then("Verify Contact Us is visible")
 public void verify_contact_us_is_visible() {

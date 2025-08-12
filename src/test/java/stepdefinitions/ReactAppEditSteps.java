@@ -1,12 +1,12 @@
 package stepdefinitions;
 
-import common.BaseClassD;
+import common.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.ReactAppEdit;
 
-public class ReactAppEditSteps extends BaseClassD {
+public class ReactAppEditSteps extends BaseClass {
 ReactAppEdit edit;
 
 @Given("user in on react app page")

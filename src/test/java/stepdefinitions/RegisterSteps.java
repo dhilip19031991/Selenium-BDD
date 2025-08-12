@@ -3,13 +3,13 @@ package stepdefinitions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import common.BaseClassD;
+import common.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.RegisterFunctionality;
 
-public class RegisterSteps extends BaseClassD {
+public class RegisterSteps extends BaseClass {
 
     RegisterFunctionality register;
 

@@ -1,13 +1,13 @@
 package stepdefinitions;
 
-import common.BaseClassD;
+import common.BaseClass;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.LoginPage;
 
-public class LoginStepsD extends BaseClassD {
+public class LoginStepsD extends BaseClass {
 LoginPage loginpage;
 
 @Given("User is on the login page")

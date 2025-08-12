@@ -1,11 +1,11 @@
 package stepdefinitions;
 
-import common.BaseClassD;
+import common.BaseClass;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.ProductDetails;
 
-public class ProdctDetailsSteps extends BaseClassD {
+public class ProdctDetailsSteps extends BaseClass {
 
 ProductDetails productdetails;
 

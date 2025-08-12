@@ -1,12 +1,12 @@
 package stepdefinitions;
 
-import common.BaseClassD;
+import common.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.DemoQABookStore;
 
-public class DemoQaSteps extends BaseClassD {
+public class DemoQaSteps extends BaseClass {
 DemoQABookStore bookstore;
 @Given("User is on the DemoQA login page")
 public void user_is_on_the_demo_qa_login_page() {
