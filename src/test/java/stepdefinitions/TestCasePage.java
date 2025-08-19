@@ -56,10 +56,11 @@ public class TestCasePage {
         String title2 = "Automation Practice Website for UI Testing - Test Cases";
         Assert.assertEquals(title2, driver.getTitle());
         System.out.println("User is navigated to test cases page");
-        ts = (TakesScreenshot) driver;
-        File src = ts.getScreenshotAs(OutputType.FILE);
-        File path = new File("C:\\Users\\malbert\\Desktop\\WEBSample\\screenshots\\TestCasePage.jpg");
-        FileHandler.copy(src, path);
+        // ts = (TakesScreenshot) driver;
+        // File src = ts.getScreenshotAs(OutputType.FILE);
+        // File path = new
+        // File("C:\\Users\\malbert\\Desktop\\WEBSample\\screenshots\\TestCasePage.jpg");
+        // FileHandler.copy(src, path);
         driver.quit();
 
     }
