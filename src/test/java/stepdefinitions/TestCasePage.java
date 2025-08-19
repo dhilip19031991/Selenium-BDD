@@ -1,6 +1,5 @@
 package stepdefinitions;
 
-import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
@@ -9,12 +8,10 @@ import java.util.Map;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -37,7 +34,7 @@ public class TestCasePage {
 
     @When("verify that the home page is visible successfully")
     public void verify_that_the_home_page_is_visible_successfully() {
-        String title = "Automation Exercise";
+        String title = "automationexercise.com";
         Assert.assertEquals(title, driver.getTitle());
         System.out.println("The Home page is visible");
     }
