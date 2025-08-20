@@ -36,7 +36,9 @@ public void verifybookstoreloggedinuser(String expectedUsername){
     Assert.assertEquals(expectedUsername, actualUserName);
 }
 public void newUserClick(){
-driver.findElement(By.id("newUser")).click();
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+WebElement newUserButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("newUser")));
+newUserButton.click();
 }
 public void verifyBookStoreRegister(){
     WebElement registerElement= driver.findElement(By.xpath("//h4[text()='Register to Book Store']"));
