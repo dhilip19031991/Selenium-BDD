@@ -29,6 +29,9 @@ jobs:
         run: mvn clean install
 
       # Step 4: Run tests
+      - name: Kill stale Chrome processes
+        run: sudo pkill chrome || true
+        
       - name: Run Tagged Scenarios
         run: mvn test -Dcucumber.filter.tags="@smoke_API"
 
