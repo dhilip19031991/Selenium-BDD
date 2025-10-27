@@ -29,18 +29,35 @@ public class BaseClass {
 
     public static WebElement element;
 
-    public void browserLaunch() {
-        // ✅ Use headless mode in Jenkins
-        ChromeOptions options = new ChromeOptions();
-        if (isHeadlessEnv()) {
-            options.addArguments("--headless=new");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-        }
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+public void browserLaunch() {
+    ChromeOptions options = new ChromeOptions();
+
+    // ✅ Always create a unique Chrome user data directory (avoids "already in use" error)
+    String tempProfileDir = System.getProperty("java.io.tmpdir") + "/chrome-profile-" + System.currentTimeMillis();
+    options.addArguments("--user-data-dir=" + tempProfileDir);
+
+    // ✅ Headless setup for CI (e.g., Jenkins, GitHub Actions, TeamCity)
+    if (isHeadlessEnv()) {
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--window-size=1920,1080");
     }
+
+    // ✅ Improve reliability in containerized/CI environments
+    options.addArguments("--disable-notifications");
+    options.addArguments("--disable-infobars");
+    options.addArguments("--disable-popup-blocking");
+    options.addArguments("--start-maximized");
+
+    driver = new ChromeDriver(options);
+    driver.manage().window().maximize();
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+}
+
 
     public void closeBrowser() {
         driver.quit();
